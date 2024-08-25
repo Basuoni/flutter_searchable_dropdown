@@ -472,7 +472,11 @@ class SearchableDropdownState<T> extends State<SearchableDropdown<T>> {
           : items[item]);
     }
     if (list.isEmpty) {
-      if (hintIndex != null) innerItemsWidget = items[hintIndex];
+      if (hintIndex != null) innerItemsWidget =             SizedBox(
+              height: 48, child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [ items[hintIndex],],),);
     } else {
       innerItemsWidget = Column(
         children: list,
@@ -578,7 +582,7 @@ class SearchableDropdownState<T> extends State<SearchableDropdown<T>> {
         Stack(
           children: <Widget>[
             Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: const EdgeInsets.symmetric(horizontal: 10),
               child: result,
             ),
             widget.underline is NotGiven
